@@ -1,0 +1,35 @@
+echo both
+
+include		in.partitions
+log 		log.lammps.${p_id} append
+
+include		in.temp
+include		in.pressure
+include 	in.seed
+units		metal
+atom_style	full
+box		tilt large
+read_restart	restart.${p_id}
+include 	in.setup
+
+# Start multiple walkers 
+
+timer           timeout 71:30:00 every 1000
+include		in.dump
+
+fix             1 all plumed plumedfile plumed.dat outfile plumed.out
+fix             2 all nph &
+		x ${pressure} ${pressure} ${pressureDamp} &
+		y ${pressure} ${pressure} ${pressureDamp} &
+		z ${pressure} ${pressure} ${pressureDamp} &
+		xy 0.0 0.0 ${pressureDamp} &
+		yz 0.0 0.0 ${pressureDamp} &
+		xz 0.0 0.0 ${pressureDamp} &
+		couple xyz
+fix             3 all temp/csvr ${temperature} ${temperature} ${tempDamp} ${seed}
+fix             4 all momentum 10000 linear 1 1 1 angular
+
+run             250000000 upto # 500 ns
+
+write_data	data.final
+

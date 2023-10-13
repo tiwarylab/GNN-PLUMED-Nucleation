@@ -1,0 +1,29 @@
+RESTART
+
+LOAD FILE=Graph.cpp
+
+# Define groups for the CV
+C: GROUP ATOMS=1-285
+ 
+# Define the CV
+GRAPH ...
+ LABEL=model
+ ATOMS=C
+ KCUT=50
+ MODEL=model.pt
+... GRAPH
+
+METAD ...
+ LABEL=metad
+ ARG=model.node-0,model.node-1
+ SIGMA=0.6,0.6 # std = [0.64675296 0.3884595 ], [0.31, 0.32]
+ HEIGHT=15 # this is 0.5kt at 1800 K 
+ FILE=HILLS   # File where the information of the gaussians is printed
+ BIASFACTOR=50
+ TEMP=1800.0 
+ PACE=500
+ GRID_MIN=1.0,1.0 GRID_MAX=15.0,15.0
+ CALC_RCT
+... METAD
+
+PRINT ARG=model.*,metad.* STRIDE=500 FILE=COLVAR 

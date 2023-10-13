@@ -1,0 +1,15 @@
+LOAD FILE=Graph.cpp
+
+# Define groups for the CV
+C: GROUP ATOMS=1-285
+ 
+# Define the CV
+GRAPH ...
+ LABEL=model
+ ATOMS=C
+ KCUT=50
+ MODEL=model-local.pt
+... GRAPH
+
+
+PRINT ARG=model.* STRIDE=1 FILE=COLVAR 

@@ -1,0 +1,14 @@
+variable	out_freq equal 500
+variable	out_freq2 equal 5000
+
+neigh_modify    delay 10 every 1
+include		in.fe
+
+timestep	0.002
+
+thermo          ${out_freq}
+thermo_style 	custom step temp pe press lx ly lz xy xz yz pxx pyy pzz pxy pxz pyz
+
+restart 	${out_freq2} restart.${p_id} restart2.${p_id}
+
+

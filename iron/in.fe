@@ -1,0 +1,3 @@
+### Modified EAM Potential Parameters ###
+pair_style 	meam
+pair_coeff	* * ../../../library.Fe_etesami.meam Fe ../../../Fe_etesami.meam Fe

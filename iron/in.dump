@@ -1,0 +1,2 @@
+dump            myDump all atom ${out_freq} dump.${p_id} 
+dump_modify	myDump append yes

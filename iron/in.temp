@@ -1,0 +1,2 @@
+variable	temperature equal 1800.
+variable	tempDamp equal 0.1 # approx 0.1 ps
