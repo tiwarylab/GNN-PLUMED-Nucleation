@@ -16,7 +16,7 @@ GRAPH ...
 METAD ...
  LABEL=metad
  ARG=model.node-0,model.node-1
- SIGMA=0.6,0.6 # std = [0.64675296 0.3884595 ], [0.31, 0.32]
+ SIGMA=0.6,0.6 
  HEIGHT=15 # this is 0.5kt at 1800 K 
  FILE=HILLS   # File where the information of the gaussians is printed
  BIASFACTOR=50
