@@ -6,4 +6,4 @@ Inputs for well-tempered metadynamics simulations biasing along GNN-learned reac
 
 - Convert the saved Pytorch model into libtorch version so PLUMED can take it as inputs. This is achieved via [```jit.trace```](https://pytorch.org/docs/stable/jit.html#) function.
 
-- Perform well-tempered metadynamics with MD engines patched with PLUMED. PLUMED needs to be compiled with [PYTORCH_MODEL](https://mlcolvar.readthedocs.io/en/latest/plumed.html) module. Instructions are provided in [this colab tutorial](https://colab.research.google.com/drive/1dG0ohT75R-UZAFMf_cbYPNQwBaOsVaAA).
+- Perform [well-tempered metadynamics](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.100.020603) with MD engines patched with PLUMED. PLUMED needs to be compiled with [`PYTORCH_MODEL`](https://mlcolvar.readthedocs.io/en/latest/plumed.html) module. Instructions are provided in [this colab tutorial](https://colab.research.google.com/drive/1dG0ohT75R-UZAFMf_cbYPNQwBaOsVaAA).
