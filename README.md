@@ -2,7 +2,7 @@
 
 Inputs for well-tempered metadynamics simulations biasing along GNN-learned reaction coordinates. Details can be found in [this manuscript](http://arxiv.org/abs/2310.07927). Here we present a simplified procedure for constructing GNN RCs.
 
-- Train and save your GNN model using [pytorch](https://pytorch.org/). 
+- Train and save your GNN model using [pytorch](https://pytorch.org/). The GNN model used in this work can be found in [this github](https://github.com/mys007/ecc/tree/release).
 
 - Convert the saved pytorch model into libtorch version so PLUMED can take it as inputs. This is achieved via [```jit.trace```](https://pytorch.org/docs/stable/jit.html#) function.
 
